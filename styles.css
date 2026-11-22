@@ -1,0 +1,819 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+
+/* =========================================================
+   UI/UX 1 - Warna, huruf, jarak antarbagian, tata letak responsif
+   ========================================================= */
+
+/* ---------- Warna merek, ukuran jarak ---------- */
+:root {
+  --bg: #fdf5e6;
+  --green: #1e4d2b;
+  --green-dark: #153a20;
+  --orange: #f26522;
+  --orange-dark: #d94f10;
+  --yellow: #fcd34d;
+  --yellow-soft: #fde9a8;
+  --red: #d9381e;
+  --purple: #7b2d8e;
+  --text: #24331f;
+  --muted: #5b6b57;
+  --white: #ffffff;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+}
+
+/* ---------- Dasar halaman: latar belakang, huruf ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1, h2, h3, h4 { line-height: 1.2; font-weight: 900; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ---------- Header (CEO) ---------- */
+#header-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg);
+}
+#header-section h1,
+#header-section .brand,
+#header-section .logo { font-size: 1.6rem; font-weight: 900; color: var(--green); }
+#header-section nav,
+#header-section ul { display: flex; gap: var(--space-3); }
+#header-section a {
+  font-weight: 700;
+  padding-bottom: 4px;
+  border-bottom: 3px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+#header-section a:hover { border-color: var(--orange); color: var(--green); }
+
+/* =========================================================
+   TAMBAHAN 1 - HEADER LOGO KOTAKTIK
+   ========================================================= */
+
+#header-section .header-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#header-section .brand-logo {
+  display: block;
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+#header-section .brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  gap: 0;
+  min-width: 0;
+}
+
+#header-section .brand-name {
+  display: inline-block;
+  width: fit-content;
+  color: var(--green);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.2;
+  border: none;
+}
+
+#header-section .brand-tagline {
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+#header-section .main-navigation {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+#header-section .main-navigation a {
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RESPONSIF HEADER - TABLET
+   ========================================================= */
+
+@media (min-width: 651px) and (max-width: 1000px) {
+
+  #header-section {
+    padding: var(--space-2) 24px;
+  }
+
+  #header-section .brand-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  #header-section .main-navigation {
+    gap: 16px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIF HEADER - MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  #header-section {
+    padding: 12px 16px;
+  }
+
+  #header-section .header-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 12px;
+  }
+
+  #header-section .brand-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  #header-section .brand {
+    flex: 0 1 auto;
+  }
+
+  #header-section .brand-name {
+    font-size: 1.4rem;
+  }
+
+  #header-section .brand-tagline {
+    font-size: .7rem;
+  }
+
+  #header-section .main-navigation {
+    width: 100%;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  #header-section .main-navigation a {
+    font-size: .9rem;
+  }
+}
+
+
+
+/* ---------- Hero (PM 1) ---------- */
+#hero-section {
+  padding: clamp(40px, 4vw, 64px) clamp(20px, 3vw, 48px) 64px;
+  color: var(--white);
+  background: var(--green);
+  border-radius: 0 0 50% 50% / 0 0 48px 48px;
+}
+
+/* Two-column hero layout */
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(24px, 3vw, 48px);
+}
+
+/* Left Column: Hero Information */
+.hero-text {
+  min-width: 0;
+}
+
+.hero-tagline {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 4px 14px;
+  font-size: clamp(.7rem, .8vw, .8rem);
+  font-weight: 800;
+  letter-spacing: .5px;
+  color: var(--green);
+  background: var(--yellow);
+  border-radius: 999px;
+}
+
+#hero-section h1 {
+  max-width: 17ch;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.hero-description {
+  max-width: 58ch;
+  font-size: clamp(.9rem, 1.1vw, 1.05rem);
+  margin-bottom: 24px;
+}
+
+/* Three Main Customer Benefits */
+.hero-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.hero-benefits li {
+  min-width: 0;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, .08);
+  border-left: 4px solid var(--yellow);
+  border-radius: 12px;
+}
+
+.benefit-title {
+  font-size: clamp(.85rem, 1vw, .95rem);
+  font-weight: 800;
+  color: var(--yellow);
+}
+
+.benefit-description {
+  font-size: clamp(.75rem, .9vw, .85rem);
+  line-height: 1.4;
+  opacity: .9;
+}
+
+/* Call to Action */
+.hero-cta {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: .95rem;
+  font-weight: 800;
+  color: var(--white);
+  background: var(--orange);
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .25);
+  transition: background-color .2s, transform .1s;
+}
+
+.hero-cta:hover {
+  background: var(--orange-dark);
+}
+
+.hero-cta:active {
+  transform: scale(.97);
+}
+
+/* Right Column: Food Image */
+.hero-visual {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  max-width: clamp(340px, 34vw, 460px);
+  max-height: 440px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 18px 20px rgba(0, 0, 0, .15));
+}
+
+
+/* ---------- Responsif: Desktop -> Tablet -> Ponsel ---------- */
+
+/* Tablet: 768px - 1023px */
+@media (max-width: 1023px) and (min-width: 768px) {
+
+  /* Hero Section */
+  .hero-content {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(16px, 2.5vw, 28px);
+  }
+
+  #hero-section h1 {
+    font-size: clamp(1.8rem, 2.8vw, 2.3rem);
+  }
+
+  .hero-description {
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+  }
+
+  .hero-benefits {
+    gap: clamp(6px, 1vw, 12px);
+  }
+
+  .hero-benefits li {
+    padding: clamp(6px, 1vw, 10px);
+  }
+
+  .benefit-title {
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+  }
+
+  .benefit-description {
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: clamp(240px, 30vw, 340px);
+    max-height: clamp(260px, 35vw, 360px);
+    object-fit: contain;
+  }
+
+  .hero-cta {
+    padding: clamp(10px, 1.5vw, 14px) clamp(18px, 2.5vw, 24px);
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+  }
+
+  /* Catalog Section */
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* Ponsel: Maksimal 767px */
+@media (max-width: 767px) {
+
+  /* Header */
+  #header-section {
+    padding: var(--space-2);
+    justify-content: center;
+  }
+
+  /* Hero Section */
+  #hero-section {
+    padding: 32px 20px 48px;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: clamp(20px, 5vw, 28px);
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  #hero-section h1 {
+    font-size: clamp(1.6rem, 5.5vw, 1.9rem);
+    line-height: 1.2;
+  }
+
+  .hero-tagline {
+    font-size: clamp(0.68rem, 2.5vw, 0.8rem);
+    letter-spacing: 0.2px;
+  }
+
+  .hero-description {
+    font-size: clamp(0.85rem, 3vw, 0.95rem);
+  }
+
+  .hero-benefits {
+    grid-template-columns: 1fr;
+    gap: clamp(8px, 2.5vw, 12px);
+  }
+
+  .hero-benefits li {
+    padding: clamp(8px, 2.5vw, 12px);
+    text-align: left;
+  }
+
+  .benefit-title {
+    font-size: clamp(0.9rem, 3.2vw, 1rem);
+  }
+
+  .benefit-description {
+    font-size: clamp(0.8rem, 2.8vw, 0.9rem);
+  }
+
+  .hero-cta {
+    padding: clamp(10px, 3vw, 14px) clamp(18px, 5vw, 24px);
+    font-size: clamp(0.85rem, 3vw, 1rem);
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(8px, 2vw, 16px);
+  }
+
+  .hero-image {
+    width: 85%;
+    max-width: clamp(220px, 70vw, 300px);
+    max-height: clamp(220px, 70vw, 300px);
+    object-fit: contain;
+  }
+
+  /* Catalog Section */
+  #catalog-section {
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer Section */
+  #footer-section {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-3) var(--space-2);
+  }
+}
+
+
+/* ---------- Katalog (PM 2): jarak dan tata letak Grid ---------- */
+#catalog-section { padding: var(--space-4) var(--space-3); }
+.catalog-container { max-width: 1100px; margin: 0 auto; }
+
+.catalog-heading { text-align: center; margin-bottom: var(--space-3); }
+.catalog-label {
+  display: inline-block;
+  margin-bottom: var(--space-1);
+  padding: 4px 14px;
+  font-size: .8rem;
+  font-weight: 800;
+  color: var(--green);
+  background: var(--yellow-soft);
+  border-radius: 999px;
+}
+.catalog-heading h2 { font-size: 2rem; color: var(--green); margin-bottom: var(--space-1); }
+
+/* Berjajar 3 kolom di komputer */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  align-items: stretch;
+}
+
+
+/* ---------- Footer (CEO) ---------- */
+#footer-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  color: var(--white);
+  background: var(--green);
+  border-radius: 50% 50% 0 0 / 40px 40px 0 0;
+}
+#footer-section a:hover { color: var(--yellow); }
+
+
+/* ---------- Responsif: komputer -> tablet -> ponsel ---------- */
+@media (max-width: 900px) {
+  #hero-section h1 { font-size: 2.2rem; }
+  .hero-benefits { grid-template-columns: 1fr; }
+  .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  #header-section { padding: var(--space-2); justify-content: center; }
+  #hero-section { padding: var(--space-3) var(--space-2) 56px; }
+  #hero-section h1 { font-size: 1.8rem; }
+  #catalog-section { padding: var(--space-3) var(--space-2); }
+  .catalog-grid { grid-template-columns: 1fr; } /* menumpuk di ponsel */
+  #footer-section { flex-direction: column; text-align: center; padding: var(--space-3) var(--space-2); }
+}
+
+
+/* =========================================================
+   UI/UX 2 - Kartu katalog, formulir kalkulator, sudut melengkung,
+   bayangan lembut, efek tombol saat disentuh kursor
+   (memakai warna dari variabel :root milik UI/UX 1)
+   ========================================================= */
+
+/* ---------- Kartu katalog ---------- */
+.package-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--white);
+  border: 2px solid #b9d9b0;
+  border-radius: 24px;
+  box-shadow: 0 6px 18px rgba(30, 77, 43, .12);
+  transition: transform .2s, box-shadow .2s;
+}
+.package-card:hover { transform: translateY(-4px); box-shadow: 0 12px 26px rgba(30, 77, 43, .2); }
+
+.package-image { position: relative; }
+.package-image img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.package-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 14px;
+  font-size: .8rem;
+  font-weight: 800;
+  color: var(--white);
+  background: var(--green);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+}
+.package-tag.favorite { background: var(--orange); }
+.package-tag.premium { background: var(--purple); }
+
+.package-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+.package-content h3 { font-size: 1.2rem; color: var(--green); }
+.package-description { font-size: .95rem; color: var(--muted); }
+.package-price { font-size: 1.8rem; font-weight: 900; color: var(--green); }
+.package-price span { font-size: 1rem; font-weight: 600; color: var(--muted); }
+.package-divider { height: 0; border-top: 2px dashed #cfe3c8; margin: 4px 0; }
+.package-content h4 { font-size: .95rem; }
+.package-features li { font-size: .95rem; margin-bottom: 2px; }
+.package-features li::before { content: "✔ "; color: var(--green); font-weight: 900; }
+.package-button { margin-top: auto; width: 100%; background: var(--green); border-radius: 14px; }
+.package-button:hover { background: var(--orange); }
+
+/* Kartu 2 (favorit) berwarna oranye, kartu 3 (premium) berwarna ungu */
+.package-featured .package-features li::before { color: var(--orange); }
+.package-featured .package-divider { border-top-color: #f5b88f; }
+.package-card:nth-child(3) .package-features li::before { color: var(--purple); }
+.package-card:nth-child(3) .package-divider { border-top-color: #d9bce0; }
+.package-featured { background: #ffe9d2; border-color: var(--orange); }
+.package-featured .package-price,
+.package-featured h3 { color: var(--orange); }
+.package-card:nth-child(3) { background: #f7ecf8; border-color: #c9a2d1; }
+.package-card:nth-child(3) .package-price,
+.package-card:nth-child(3) h3 { color: var(--purple); }
+
+/* ---------- Banner promo ---------- */
+.catalog-promo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  color: var(--white);
+  background: var(--red);
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(217, 56, 30, .25);
+}
+.promo-icon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--red);
+  background: var(--yellow);
+  border-radius: 50%;
+}
+.promo-information { flex: 1; }
+.promo-information h3 { font-size: 1.2rem; }
+.promo-information small { display: block; opacity: .9; }
+.promo-code {
+  padding: 10px 18px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  border: 2px dashed var(--white);
+  border-radius: 12px;
+}
+
+/* ---------- Formulir kalkulator (SE 1) ---------- */
+#calc-section {
+  width: calc(100% - 2 * var(--space-3));
+  max-width: 720px;
+  margin: var(--space-4) auto;
+  padding: var(--space-3);
+  background: var(--yellow-soft);
+  border-radius: 24px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+}
+#calc-section h2 { font-size: 1.6rem; color: var(--green); margin-bottom: var(--space-1); }
+#calc-section > p { margin-bottom: var(--space-2); }
+#calc-section br { display: none; }
+#calc-section > div { margin-bottom: var(--space-2); }
+#calc-section label { display: block; font-weight: 700; margin-bottom: 4px; }
+#calc-section select,
+#calc-section input {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--text);
+  background: var(--white);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  transition: border-color .2s, box-shadow .2s;
+}
+#calc-section select:focus,
+#calc-section input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(30, 77, 43, .2);
+}
+#calc-section > button { width: 100%; background: var(--green); border-radius: 14px; }
+#calc-section > button:hover { background: var(--orange); }
+
+#result {
+  margin-top: var(--space-2);
+  padding: var(--space-3);
+  font-weight: 700;
+  background: var(--white);
+  border-radius: 16px;
+}
+#result p { margin: 0; padding: 4px 0; }
+
+/* ---------- Tombol umum: berubah warna saat disentuh kursor ---------- */
+button {
+  display: inline-block;
+  padding: 12px 24px;
+  font: inherit;
+  font-weight: 800;
+  color: var(--white);
+  background: var(--orange);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color .2s, transform .1s;
+}
+button:hover { background: var(--orange-dark); }
+button:active { transform: scale(.97); }
+button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+
+/* ---------- Responsif untuk komponen UI/UX 2 ---------- */
+@media (max-width: 600px) {
+  .catalog-promo { flex-direction: column; text-align: center; }
+  #calc-section { padding: var(--space-2); }
+}
+
+/* =========================================================
+   FOOTER KOTAKTIK
+   DESKTOP, TABLET, DAN MOBILE
+   ========================================================= */
+
+/* DESKTOP */
+#footer-section {
+  display: block;
+  width: 100%;
+  background: var(--green);
+  color: var(--white);
+  padding: 48px 40px 24px;
+}
+
+#footer-section .footer-container {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr;
+  align-items: start;
+  gap: 40px;
+}
+
+#footer-section .footer-brand {
+  text-align: center;
+}
+
+#footer-section .footer-group {
+  text-align: center;
+}
+
+#footer-section .footer-members {
+  text-align: center;
+}
+
+#footer-section .footer-group h3,
+#footer-section .footer-members h3 {
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+#footer-section .footer-members ul {
+  display: inline-block;
+  text-align: center;
+}
+
+#footer-section .footer-members li {
+  margin-bottom: 4px;
+}
+
+#footer-section .footer-copyright {
+  width: 100%;
+  max-width: 1450px;
+  margin: 32px auto 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, .2);
+  text-align: center;
+}
+
+
+/* TABLET */
+@media (min-width: 601px) and (max-width: 900px) {
+  #footer-section {
+    padding: 40px 24px 20px;
+  }
+
+  #footer-section .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  #footer-section .footer-brand {
+    text-align: left;
+  }
+
+  #footer-section .footer-group {
+    text-align: center;
+  }
+
+  #footer-section .footer-members {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  #footer-section .footer-copyright {
+    text-align: center;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 600px) {
+  #footer-section {
+    display: block;
+    padding: 36px 20px 20px;
+    text-align: center;
+  }
+
+  #footer-section .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  #footer-section .footer-brand,
+  #footer-section .footer-group,
+  #footer-section .footer-members {
+    width: 100%;
+    text-align: center;
+  }
+
+  #footer-section .footer-members ul {
+    display: inline-block;
+    text-align: center;
+  }
+
+  #footer-section .footer-copyright {
+    margin-top: 24px;
+    padding-top: 16px;
+    text-align: center;
+  }
+}
