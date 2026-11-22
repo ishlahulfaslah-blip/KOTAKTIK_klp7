@@ -42,7 +42,7 @@ Penyediaan konsumsi kotak untuk:
 
 ## Website
 **Link GitHub Pages:**
-Akan diperbarui setelah website dipublikasikan.
+https://ishlahulfaslah-blip.github.io/KOTAKTIK_klp7/
 
 ## Anggota Kelompok
 
