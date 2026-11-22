@@ -1,4 +1,4 @@
-# kotaktik-klp7
+# KOTAKTIK-klp7
 Website KOTAKTIK – Penyedia Konsumsi Kotak Kegiatan Kampus
 
 ### Strategi Kenyang Tanpa Drama.
